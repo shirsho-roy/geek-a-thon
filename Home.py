@@ -52,7 +52,7 @@ st.text("")
 
 #Some more bakchodi
 st.header("We got that data!")
-st.write("It is indeed very exciting, getting our hands on some quality data to explore what happens to be the largest sporting event in the world.While ut is tempting to dive headfirst into this ocean of data, we acknowlege that evaluating data completeness and practicing transperency regarding the same. So here goes! Here's the year wise completeness we have for the data in use!")
+st.write("It is indeed very exciting, getting our hands on some quality data to explore what happens to be the largest sporting event in the world.While it is tempting to dive headfirst into this ocean of data, we acknowlege that evaluating data completeness and practicing transperency regarding the same is very important. So here goes! Here's the year wise completeness we have for the data in use!")
 st.text("")
 #Data manipulation to get Data Completeness vs Year curve
 years=list(df['Year'].unique())

@@ -44,7 +44,7 @@ val=st.sidebar.selectbox("Pick a nation, for deeper analysis",options=nations)
 st.sidebar.write("All nations are indexed and abbreviated to 3 letters to represent the nation.")
 
 #Dataframe adjustments
-df_nation=rslt_df = df2.loc[df2['NOC'] == val]
+df_nation = df2.loc[df2['NOC'] == val]
 df_nation['Age']=df_nation['Age'].apply(np.floor)
 array_temp=list(df_nation['Age'])
 array_temp_unique=list(df_nation['Age'].unique())
@@ -211,6 +211,49 @@ else:
             y=alt.Y('Sport',title="Sport")
         )
     st.altair_chart(params,use_container_width=True)
+
+#Medals
+st.subheader("Let's talk medals!")
+st.write("Here we crunch data and visualise the medal count and their distribution across sports for the nation in question.")
+medals=['Silver','Bronze','Gold']
+gold=0
+silver=0
+bronze=0
+for i in df_nation['Medal']:
+    if i=='Gold':
+        gold+=1
+    elif i=='Silver':
+        silver+=1
+    else:
+        bronze+=1
+count_medals=[silver,bronze,gold]
+total_medal={'medal_type':medals,'occurence':count_medals}
+total_medal_df=pd.DataFrame(total_medal)
+
+#Corresponding Plot
+type_medal_count=st.radio(label="Pick how you'd like to visualize the number of medal.",options=['Bar Chart','Line Chart'],horizontal=True)
+if(type_medal_count=='Bar Chart'):
+    params=alt.Chart(total_medal_df).mark_bar().encode(
+        x=alt.X('medal_type',title="Medals"),
+        y=alt.Y('occurence',title="Number of medals")
+    )
+    st.altair_chart(params,use_container_width=True)
+else:
+    params=alt.Chart(total_medal_df).mark_line().encode(
+        x=alt.X('medal_type',title="Medals"),
+        y=alt.Y('occurence',title="Number of medals")
+    )
+    st.altair_chart(params,use_container_width=True)
+st.write("This plot reflects the number of medals that the nation has accumulated **across their entire course of participation in the Olympic games.**")
+df_nation=df_nation.fillna("-None")
+
+#Mein chutiya hoon, shift this to Year-Wise analysis.
+#Heatmap of occurence
+# params=alt.Chart(df_nation).mark_bar().encode(
+#         x=alt.X('Sport',title="Sport"),
+#         y=alt.Y('Medal',title="Medals")
+#     )
+# st.altair_chart(params,use_container_width=True)
 
 #Athlete by sport count
 v_spacer(2,sb=False)

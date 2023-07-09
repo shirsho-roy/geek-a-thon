@@ -190,3 +190,39 @@ else:
         y=alt.Y('frequency',title="Number of athletes")
     )
     st.altair_chart(params,use_container_width=True)
+
+#Events ins sports
+st.subheader("Events in the Sport")
+st.write("There's often multiple events under the some sport. Here, you can have a look at all the different events those are envoloped under the same sport.")
+events=df_sport['Event'].unique()
+v_spacer(1,sb=False)
+st.write("**The sport contains a total of** "+str(len(events))+" **events**")
+for i in range(len(events)):
+    st.write("\t"+str(i+1)+". "+events[i])
+
+#Event-by-event analysis
+event_list=df_sport['Event'].unique()
+event_count_array=list(df_sport['Event'])
+event_count=[]
+for i in event_list:
+    temp=event_count_array.count(i)
+    event_count.append(temp)
+
+event_wise_dict={'events':event_list,'freq_event':event_count}
+event_wise_df=pd.DataFrame(event_wise_dict)
+
+v_spacer(1,sb=False)
+st.write("**Here's the athlete distribution by event.**")
+type_event=st.radio(label="Pick how you'd like to visualize the event distribution of athletes.",options=['Bar Chart','Line Chart'],horizontal=True)
+if(type_event=='Bar Chart'):
+    params=alt.Chart(event_wise_df).mark_bar().encode(
+        x=alt.X('events',title="Events"),
+        y=alt.Y('freq_event',title="Number of athletes")
+    )
+    st.altair_chart(params,use_container_width=True)
+else:
+    params=alt.Chart(event_wise_df).mark_line().encode(
+        x=alt.X('events',title="Events"),
+        y=alt.Y('freq_event',title="Number of athletes")
+    )
+    st.altair_chart(params,use_container_width=True)

@@ -223,14 +223,15 @@ for i in sports_list:
     sport_count.append(temp)
 
 #Most Popular Sport
-max_sport_count_idx=None
+max_sport_count_idx=0
 max_sport_count=0
 for i in range(len(sport_count)):
-    if sport_count[i]>max_sport_count:
-        max_sport_count=max(max_sport_count,sport_count[i])
+    temp_num=sport_count[i]
+    if temp_num>max_sport_count:
+        max_sport_count=temp_num
         max_sport_count_idx=i
 
-pop_sport=sports_list[i]
+pop_sport=sports_list[max_sport_count_idx]
 
 #Create corresponding dictionary and dataframe
 v_spacer(2,sb=False)

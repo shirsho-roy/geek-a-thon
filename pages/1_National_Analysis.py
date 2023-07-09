@@ -212,40 +212,39 @@ else:
         )
     st.altair_chart(params,use_container_width=True)
 
-#Ending content waali bakchodi
+#Athlete by sport count
+v_spacer(2,sb=False)
+st.subheader("Popular Sports!")
+st.write("Here you can view which Olympic sport has the most number of athletes in the given nation.")
+sports_list=sorted(list(df_nation['Sport'].unique()))
+sport_count=[]
+for i in sports_list:
+    temp=list(df_nation['Sport']).count(i)
+    sport_count.append(temp)
+
+#Most Popular Sport
+max_sport_count_idx=None
+max_sport_count=0
+for i in range(len(sport_count)):
+    if sport_count[i]>max_sport_count:
+        max_sport_count=max(max_sport_count,sport_count[i])
+        max_sport_count_idx=i
+
+pop_sport=sports_list[i]
+
+#Create corresponding dictionary and dataframe
+v_spacer(2,sb=False)
+sports_freq_dict={'sports':sports_list,'sport_freq':sport_count}
+df_sports_freq=pd.DataFrame(sports_freq_dict)
+
+#Corresponding Plot
+params=alt.Chart(df_sports_freq).mark_bar().encode(
+    x=alt.X('sport_freq',title="Number of athletes"),
+    y=alt.Y('sports',title="Sport")
+)
+st.altair_chart(params,use_container_width=True)
 v_spacer(1,sb=False)
+st.write("Most popular Olympic sport in the nation is " + pop_sport + " with " + str(max_sport_count) + " players.")
+
+#Ending content waali bakchodi, thoda aur likh lena
 st.write("That wraps up all substantial variations with the nation being a driving parameter. Visit other pages to similarly study other variations!")
-
-
-
-#Mein chutiya hoon, shift this to Sport-wise page. Too lazy to rewrite. Copy-Paste kar dena.
-# #Athlete by sport count
-# sports_list=sorted(list(df_nation['Sport'].unique()))
-# sport_count=[]
-# for i in sports_list:
-#     temp=list(df_nation['Sport']).count(i)
-#     sport_count.append(temp)
-
-# #Most Popular Sport
-# max_sport_count_idx=None
-# max_sport_count=0
-# for i in range(len(sport_count)):
-#     if sport_count[i]>max_sport_count:
-#         max_sport_count=max(max_sport_count,sport_count[i])
-#         max_sport_count_idx=i
-
-# pop_sport=sports_list[i]
-
-# #Create corresponding dictionary and dataframe
-# v_spacer(2,sb=False)
-# sports_freq_dict={'sports':sports_list,'sport_freq':sport_count}
-# df_sports_freq=pd.DataFrame(sports_freq_dict)
-
-# #Corresponding Plot
-# params=alt.Chart(df_sports_freq).mark_bar().encode(
-#     x=alt.X('sport_freq',title="Number of athletes"),
-#     y=alt.Y('sports',title="Sport")
-# )
-# st.altair_chart(params,use_container_width=True)
-# v_spacer(1,sb=False)
-# st.write("Most popular Olympic sport in the nation is " + pop_sport + " with " + str(max_sport_count) + " players.")

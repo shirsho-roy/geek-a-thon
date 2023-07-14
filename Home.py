@@ -29,7 +29,7 @@ def v_spacer(height, sb=False) -> None:
             st.write('\n')
 
 #Description waali bakchodi
-st.write("Welcome to OlympData, your ultimate destination for comprehensive analysis of previous Olympic data. Whether you're a sports enthusiast, a researcher, or simply curious about the history of the Olympic Games, OlympData offers a wealth of information and insights to satisfy your curiosity.")
+st.write("Welcome to OlympData, your ultimate destination for comprehensive analysis of previous Olympic data. Whether you're a sports enthusiast, a researcher, or simply curious about the history of the Olympic Games, OlympData offers a wealth of information and insights to satisfy your curiosity. **We provide you the power to pick your parameters allowing you to zone in on a given nation, a given sport, a given year all at the same time, or pick any combinations of the 3. Additionally, we provide some parameters, to give you some broad-stroke analysis. These analyses include the variation of only 1 major parameter. The broad-stroke pages include mostly variations with respect to age and physical parameters for the sake of simplicity. For more personalised solutions, the 'Pick Your Parameters' page is all yours!**.")
 st.write("Explore a wide range of statistical data on our website, including medal counts, individual and team performances, records, and historical trends. Our interactive visualizations and intuitive tools allow you to navigate the data effortlessly, enabling you to uncover fascinating patterns and gain unique perspectives on the Games.")
 st.write("Using OlympData, you can filter and analyze the data according to your preferences, whether you're interested in a specific sport, country, or Olympic edition. Discover how countries have fared over time, track the evolution of Olympic records, or compare performances across different sports. Our user-friendly interface ensures that you can delve into the data and customize your exploration with ease.")
 st.write("Whether you're an avid sports fan, a student conducting research, or someone seeking inspiration from the remarkable achievements of Olympic athletes, OlympData is your go-to resource. Uncover the hidden insights within Olympic data and embark on a captivating journey through the annals of the Games. Join us today and let the numbers tell their story!")
@@ -65,7 +65,7 @@ for i in range(len(years)):
 
 #Sidebar ki bakchodi
 st.sidebar.success("You are viewing the Home page.")
-st.sidebar.write("Use the sidebar on the 'Analysis' pages to customize the parameters for your data visualisation and analytics.")
+st.sidebar.write("Use the sidebar on the 'Analysis' and 'Pick Your Parameters' pages to customize the parameters for your data visualisation and analytics.")
 v_spacer(height=16,sb=True)
 st.sidebar.write("**Team - East India Company**")
 

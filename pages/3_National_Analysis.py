@@ -10,7 +10,7 @@ from PIL import Image
 #Read csv into DataFrame 
 df=pd.read_csv("Data/athlete_events.csv")
 df['BMI']=(df['Weight']/(df['Height']*df['Height']))*10000
-nations=list(df['NOC'].unique())
+nations=sorted(list(df['NOC'].unique()))
 
 #Vertical space adding function
 def v_spacer(height, sb=False) -> None:
@@ -59,6 +59,17 @@ age_count_df=pd.DataFrame(age_count)
 st.subheader("Let's take a deeper dive into the member nations!")
 st.write("Pick the nation you want to analyse further from the sidebar, based on the nation's 3 letter abbreviation. You can then navigate to the parameter whose variation you wish to study on this page and dig in to your heart's content. There are multiple visualisation options for the same data, so pick whichever pleases you!")
 
+#Mein chutiya hoon, shift this to Year-Wise analysis. Nvm unintentionally looks cool here.
+#Heatmap of occurence
+st.subheader("**National Storehouse**")
+st.write("**Here you can look for the presence of a certain type of award/medal in a nation's aresenal.**")
+params=alt.Chart(df_nation).mark_bar().encode(
+        x=alt.X('Sport',title="Sport"),
+        y=alt.Y('Medal',title="Medals")
+    )
+st.altair_chart(params,use_container_width=True)
+
+v_spacer(2,sb=False)
 #Age Variation
 st.subheader("Age Demographics")
 st.write("You can study how the age demographic of each member nation is distributed and how various other parameters vary with respect to age. Height-Weight variations can be studied via the BMI charts. All substantial variations can be studied via the plotted curves.")
@@ -73,7 +84,6 @@ for i in df_nation['Age']:
 maxage=min(maxage,50)
 
 v_spacer(2,sb=False)
-
 #Age Plot
 st.write("**1. Distribution of players across different ages**")
 type_age=st.radio(label="Pick a method for graph visualisation.",options=['Bar Chart','Line Chart'],horizontal=True)
@@ -246,14 +256,6 @@ else:
     st.altair_chart(params,use_container_width=True)
 st.write("This plot reflects the number of medals that the nation has accumulated **across their entire course of participation in the Olympic games.**")
 df_nation=df_nation.fillna("-None")
-
-#Mein chutiya hoon, shift this to Year-Wise analysis.
-#Heatmap of occurence
-# params=alt.Chart(df_nation).mark_bar().encode(
-#         x=alt.X('Sport',title="Sport"),
-#         y=alt.Y('Medal',title="Medals")
-#     )
-# st.altair_chart(params,use_container_width=True)
 
 #Athlete by sport count
 v_spacer(2,sb=False)

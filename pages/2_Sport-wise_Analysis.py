@@ -10,7 +10,7 @@ from PIL import Image
 #Read csv into DataFrame 
 df=pd.read_csv("Data/athlete_events.csv")
 df['BMI']=(df['Weight']/(df['Height']*df['Height']))*10000
-sports=list(df['Sport'].unique())
+sports=sorted(list(df['Sport'].unique()))
 
 #Vertical space adding function
 def v_spacer(height, sb=False) -> None:
@@ -59,6 +59,43 @@ age_count_df=pd.DataFrame(age_count)
 st.subheader("Let's better analyse the Olympic sport!")
 st.write("Pick the sport you want to analyse further from the sidebar, based on the sport's 3 letter abbreviation. You can then navigate to the parameter whose variation you wish to study on this page and dig in to your heart's content. There are multiple visualisation options for the same data, so pick whichever pleases you!")
 
+#Events in the sport
+st.subheader("Events in the Sport")
+st.write("There's often multiple events under the some sport. Here, you can have a look at all the different events those are envoloped under the same sport.")
+events=df_sport['Event'].unique()
+v_spacer(1,sb=False)
+st.write("**The sport contains a total of** "+str(len(events))+" **events**")
+for i in range(len(events)):
+    st.write("\t"+str(i+1)+". "+events[i])
+
+#Event-by-event analysis
+event_list=df_sport['Event'].unique()
+event_count_array=list(df_sport['Event'])
+event_count=[]
+for i in event_list:
+    temp=event_count_array.count(i)
+    event_count.append(temp)
+
+event_wise_dict={'events':event_list,'freq_event':event_count}
+event_wise_df=pd.DataFrame(event_wise_dict)
+
+v_spacer(1,sb=False)
+st.write("**Here's the athlete distribution by event.**")
+type_event=st.radio(label="Pick how you'd like to visualize the event distribution of athletes.",options=['Bar Chart','Line Chart'],horizontal=True)
+if(type_event=='Bar Chart'):
+    params=alt.Chart(event_wise_df).mark_bar().encode(
+        x=alt.X('events',title="Events"),
+        y=alt.Y('freq_event',title="Number of athletes")
+    )
+    st.altair_chart(params,use_container_width=True)
+else:
+    params=alt.Chart(event_wise_df).mark_line().encode(
+        x=alt.X('events',title="Events"),
+        y=alt.Y('freq_event',title="Number of athletes")
+    )
+    st.altair_chart(params,use_container_width=True)
+v_spacer(2,sb=False)
+
 #Age Variation
 st.subheader("Age Demographics")
 st.write("You can study how the age demographic of each member sport is distributed and how various other parameters. All substantial variations can be studied via the plotted curves.")
@@ -88,6 +125,7 @@ else:
         y=alt.Y('count',title="Number of athletes")
     )
     st.altair_chart(params,use_container_width=True)
+
 v_spacer(2,sb=False)
 
 st.write("**2. How do different generations of players differ in height?**")
@@ -153,7 +191,7 @@ st.write("Now, let's imagine these somatotypes as different kinds of toys. Endom
 v_spacer(1,sb=False)
 st.write("-Here, we classify **BMI values<=19** as **ectomorphs**,")
 st.write("-Here, we classify **BMI values between 19 and 25** as **mesomorphs**,")
-st.write("-Here, we classify **BMI values>=25** as **endomorphs**,")
+st.write("-Here, we classify **BMI values>=25** as **endomorphs**")
 
 #Counting somatotypes
 endo=0
@@ -188,41 +226,5 @@ else:
     params=alt.Chart(df_somatotype_counts).mark_line().encode(
         x=alt.X('bodytypes',title="Somatotype"),
         y=alt.Y('frequency',title="Number of athletes")
-    )
-    st.altair_chart(params,use_container_width=True)
-
-#Events ins sports
-st.subheader("Events in the Sport")
-st.write("There's often multiple events under the some sport. Here, you can have a look at all the different events those are envoloped under the same sport.")
-events=df_sport['Event'].unique()
-v_spacer(1,sb=False)
-st.write("**The sport contains a total of** "+str(len(events))+" **events**")
-for i in range(len(events)):
-    st.write("\t"+str(i+1)+". "+events[i])
-
-#Event-by-event analysis
-event_list=df_sport['Event'].unique()
-event_count_array=list(df_sport['Event'])
-event_count=[]
-for i in event_list:
-    temp=event_count_array.count(i)
-    event_count.append(temp)
-
-event_wise_dict={'events':event_list,'freq_event':event_count}
-event_wise_df=pd.DataFrame(event_wise_dict)
-
-v_spacer(1,sb=False)
-st.write("**Here's the athlete distribution by event.**")
-type_event=st.radio(label="Pick how you'd like to visualize the event distribution of athletes.",options=['Bar Chart','Line Chart'],horizontal=True)
-if(type_event=='Bar Chart'):
-    params=alt.Chart(event_wise_df).mark_bar().encode(
-        x=alt.X('events',title="Events"),
-        y=alt.Y('freq_event',title="Number of athletes")
-    )
-    st.altair_chart(params,use_container_width=True)
-else:
-    params=alt.Chart(event_wise_df).mark_line().encode(
-        x=alt.X('events',title="Events"),
-        y=alt.Y('freq_event',title="Number of athletes")
     )
     st.altair_chart(params,use_container_width=True)

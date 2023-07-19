@@ -305,3 +305,4 @@ else:
             color=alt.Color('Sex')
         )
     st.altair_chart(params,use_container_width=True)
+

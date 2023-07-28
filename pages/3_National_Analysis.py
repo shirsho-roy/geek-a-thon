@@ -11,6 +11,16 @@ from PIL import Image
 df=pd.read_csv("Data/athlete_events.csv")
 df['BMI']=(df['Weight']/(df['Height']*df['Height']))*10000
 nations=sorted(list(df['NOC'].unique()))
+#Page load waali bakchodi
+st.set_page_config(
+    page_title="OlympData - National Analysis",
+    page_icon="🏅",
+    layout="wide",
+)
+with open("style.css") as f:
+        custom_css = f.read()
+        st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
+
 
 #Vertical space adding function
 def v_spacer(height, sb=False) -> None:
@@ -20,12 +30,7 @@ def v_spacer(height, sb=False) -> None:
         else:
             st.write('\n')
 
-#Page load waali bakchodi
-st.set_page_config(
-    page_title="OlympData - National Analysis",
-    page_icon="🏅",
-    layout="wide",
-)
+
 
 #Sidebar waali bakchodi
 st.sidebar.success("Nation-Wise Analysis")

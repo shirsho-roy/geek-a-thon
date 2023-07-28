@@ -8,17 +8,23 @@ from PIL import Image
 
 #Read csv into DataFrame 
 df=pd.read_csv("Data/athlete_events.csv")
-
-#Page load waali bakchodi
+#Page load 
 st.set_page_config(
     page_title="OlympData",
     page_icon="🏅",
     layout="wide",
 )
 
+with open("style.css") as f:
+        custom_css = f.read()
+        st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
+
+
+
 #Content waali bakchodi
 st.title("OlympData!")
 st.header("Uncovering the Goldmine of Olympic Insights!")
+
 
 #Vertical space adding function
 def v_spacer(height, sb=False) -> None:
@@ -50,7 +56,7 @@ st.write("Beyond the competitive aspect, the Olympics foster cultural exchange a
 st.write("As the world's largest sporting event, the Olympics captivate billions of viewers, ignite national pride, and serve as a testament to the power of sports to unite humanity. The Games represent a celebration of athletic prowess, cultural diversity, and the universal values of peace, friendship, and solidarity.")
 st.text("")
 
-#Some more bakchodi
+
 st.header("We got that data!")
 st.write("It is indeed very exciting, getting our hands on some quality data to explore what happens to be the largest sporting event in the world.While it is tempting to dive headfirst into this ocean of data, we acknowlege that evaluating data completeness and practicing transperency regarding the same is very important. So here goes! Here's the year wise completeness we have for the data in use!")
 st.text("")
@@ -63,11 +69,11 @@ for i in range(len(years)):
     completeness=100-(((var/varlen)*100)/12)
     completeness_array.append(completeness)
 
-#Sidebar ki bakchodi
-st.sidebar.success("You are viewing the Home page.")
-st.sidebar.write("Use the sidebar on the 'Analysis' and 'Pick Your Parameters' pages to customize the parameters for your data visualisation and analytics.")
-v_spacer(height=16,sb=True)
-st.sidebar.write("**Team - East India Company**")
+#Sidebar
+# st.sidebar.success("You are viewing the Home page.")
+# st.sidebar.write("Use the sidebar on the 'Analysis' and 'Pick Your Parameters' pages to customize the parameters for your data visualisation and analytics.")
+# v_spacer(height=16,sb=True)
+# st.sidebar.write("**Team - East India Company**")
 
 
 #Completeness plot

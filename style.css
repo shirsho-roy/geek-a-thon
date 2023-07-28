@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+#olympdata > div > span{
+    color: #ffe91f
+}
+.sidebar {
+    background-color: #e0e7ee;
+    color: rgb(27, 26, 26);
+    padding: 10px;
+}
+
+
+/* #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-uf99v8.ea3mdgi5{
+    background: #1b1b1b
+} */
+
+.css-6qob1r.eczjsme3{
+    background-color: black;
+    border: 2px solid #ffe91f !important;
+}
+.css-6qob1r.eczjsme3:hover{
+    background-color: black;
+    border: 2px solid #ffe91f !important;
+}

@@ -110,7 +110,7 @@ with colo1:
     else:
         addendum=100
 
-st.write("**Your personalized calorie recommendation is**" + " " + str(round(bmr*multiplier,2)+addendum))
+st.write("**Your personalized calorie recommendation is**" + " " + str(round(bmr*multiplier,2)+addendum)+" "+"**calories**")
 v_spacer(2,sb=False)
 
 st.subheader("Takeaway!")

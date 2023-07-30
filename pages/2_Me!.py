@@ -6,6 +6,13 @@ from PIL import Image
 #Model Import
 model = pickle.load(open('model.pkl','rb'))
 
+#Page initialization waali bakchodi
+st.set_page_config(
+    page_title="Me!",
+    page_icon="🏅",
+    layout="wide",
+)
+
 #Vertical space adding function
 def v_spacer(height, sb=False) -> None:
     for _ in range(height):

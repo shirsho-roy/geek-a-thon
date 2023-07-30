@@ -30,6 +30,7 @@ def v_spacer(height, sb=False) -> None:
             st.sidebar.write('\n')
         else:
             st.write('\n')
+v_spacer(3, sb=False)
 
 
 #Sidebar waali bakchodi

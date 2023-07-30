@@ -14,6 +14,7 @@ def v_spacer(height, sb=False) -> None:
             st.sidebar.write('\n')
         else:
             st.write('\n')
+v_spacer(3, sb=False)
 
 #Page initialization waali bakchodi
 st.set_page_config(

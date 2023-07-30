@@ -1,26 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'EB Garamond', serif;
 }
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-uf99v8.e1g8pov65 > div.block-container.css-z5fcl4.e1g8pov64{
+    font-family: 'EB Garamond', serif;
+}
+
+#uncovering-the-goldmine-of-olympic-insights > div > span, #olympics-you-ask > div > span, #we-got-that-data > div > span, #we-got-that-data > div > span, #let-s-take-a-deeper-dive-into-the-member-nations > div > span, #national-storehouse > div > span > strong, #age-demographics > div > span, #let-s-talk-medals > div > span, #popular-sports > div > span, #let-s-better-analyse-the-olympic-sport > div > span, #events-in-the-sport > div > span, #age-demographics > div > span, #let-s-take-a-deeper-dive-into-the-timeline-of-the-olympic-games > div > span, #age-demographics > div > span, #\31 0-lawrence-lemieux-canada > div > span, #\39 -dick-fosbury-united-states > div > span, #\38 -rulon-gardner-united-states > div > span, #\37 -bob-beamon-united-states > div > span, #\36 -michael-phelps-united-states > div > span, #\35 -usain-bolt-jamaica > div > span, #\34 -jesse-owens-united-states > div > span, #\33 -abebe-bikila-ethiopia > div > span, #\32 -greg-louganis-united-states > div > span, #\31 -nadia-comaneci-romania > div > span{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffe70b;
+}
+
 #olympdata > div > span{
-    color: #ffe91f
+    font-family: 'Abril Fatface', cursive;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffe91f;
+    color: black;
+    position: relative;
+    margin-left: 45%;
+    margin-top: 5vh;
 }
+
+@media (max-width:768px) {
+    #olympdata > div > span{
+        margin-left: 40vw;
+    }
+    #parametric-analysis > div > span{
+        margin-left: 40vw;
+    }
+}
+
+#parametric-analysis > div > span{
+    font-family: 'Abril Fatface', cursive;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffe91f;
+    color: black;
+    position: relative;
+    margin-left: 40%;
+    margin-top: 5vh;
+}
+
+#nation-wise-analysis > div > span{
+    font-family: 'Abril Fatface', cursive;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffe91f;
+    color: black;
+    position: relative;
+    margin-left: 40%;
+    margin-top: 5vh;
+}
+
+#sport-wise-analysis > div > span{
+    font-family: 'Abril Fatface', cursive;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffe91f;
+    color: black;
+    position: relative;
+    margin-left: 40%;
+    margin-top: 5vh;
+}
+
+#year-wise-analysis > div > span{
+    font-family: 'Abril Fatface', cursive;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffe91f;
+    color: black;
+    position: relative;
+    margin-left: 40%;
+    margin-top: 5vh;
+}
+
+#hall-of-fame > div > span{
+    font-family: 'Abril Fatface', cursive;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffe91f;
+    color: black;
+    position: relative;
+    margin-left: 40%;
+    margin-top: 5vh;
+}
+
 .sidebar {
     background-color: #e0e7ee;
     color: rgb(27, 26, 26);
     padding: 10px;
 }
 
+/* #root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-1cypcdb.e1akgbir11 > div.css-6qob1r.e1akgbir3 > div.css-79elbk.e1akgbir10 > ul > li:nth-child(1) > div:hover{
+    background-color: #ffe91f;
+    border: 2px solid white;
+    border-radius: ;
+    color: rgb(0, 0, 0) !important;
+}
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-1cypcdb.e1akgbir11 > div.css-6qob1r.e1akgbir3 > div.css-79elbk.e1akgbir10 > ul > li:nth-child(1) > div > a > span:hover{
+    color: black !important;
+} */
+
 
 /* #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-uf99v8.ea3mdgi5{
     background: #1b1b1b
 } */
 
-.css-6qob1r.eczjsme3{
+/* .css-6qob1r.eczjsme3{
     background-color: black;
     border: 2px solid #ffe91f !important;
 }
 .css-6qob1r.eczjsme3:hover{
     background-color: black;
     border: 2px solid #ffe91f !important;
+} */
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-1cypcdb.e1akgbir11 > div.css-6qob1r.e1akgbir3{
+    border-right: 4px solid #ffe91f;
+    font-family: 'PT Serif', serif;
+    background-color: black;
 }

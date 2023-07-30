@@ -15,6 +15,17 @@ st.set_page_config(
     layout="wide",
 )
 
+def v_spacer(height, sb=False) -> None:
+    for _ in range(height):
+        if sb:
+            st.sidebar.write('\n')
+        else:
+            st.write('\n')
+
+v_spacer(3, sb=False)
+
+
+
 with open("style.css") as f:
         custom_css = f.read()
         st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
@@ -23,6 +34,7 @@ with open("style.css") as f:
 
 #Content waali bakchodi
 st.title("OlympData!")
+v_spacer(3, sb=False)
 st.header("Uncovering the Goldmine of Olympic Insights!")
 
 

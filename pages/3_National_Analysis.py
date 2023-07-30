@@ -295,7 +295,7 @@ params=alt.Chart(df_sports_freq).mark_bar().encode(
 )
 st.altair_chart(params,use_container_width=True)
 v_spacer(1,sb=False)
-st.write("Most popular Olympic sport in the nation is " + pop_sport + " with " + str(max_sport_count) + " players.")
+st.success("Most popular Olympic sport in the nation is " + pop_sport + " with " + str(max_sport_count) + " players.")
 
 #Ending content waali bakchodi, thoda aur likh lena
 st.write("That wraps up all substantial variations with the nation being a driving parameter. Visit other pages to similarly study other variations!")

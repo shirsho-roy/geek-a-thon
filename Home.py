@@ -98,3 +98,9 @@ params=alt.Chart(completeness_df).mark_line().encode(
 st.altair_chart(params,use_container_width=True)
 st.write("Methods of mean imputation were used to fill in empty data points!")
 st.text("")
+st.download_button(
+    label="Download data as CSV",
+    data="Data/athlete_events.csv",
+    file_name='"athlete_events.csv"',
+    mime='text/csv',
+)

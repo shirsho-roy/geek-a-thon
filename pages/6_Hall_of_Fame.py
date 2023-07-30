@@ -7,6 +7,12 @@ import seaborn as sns
 import altair as alt
 from PIL import Image
 
+#Page initialization 
+st.set_page_config(
+    page_title="Hall of Fame",
+    page_icon="🏅",
+    layout="wide",
+)
 #Vertical space adding function
 def v_spacer(height, sb=False) -> None:
     for _ in range(height):
@@ -16,12 +22,10 @@ def v_spacer(height, sb=False) -> None:
             st.write('\n')
 v_spacer(3, sb=False)
 
-#Page initialization waali bakchodi
-st.set_page_config(
-    page_title="Hall of Fame",
-    page_icon="🏅",
-    layout="wide",
-)
+with open("style.css") as f:
+        custom_css = f.read()
+        st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
+
 
 st.header("Hall of Fame!")
 st.write("Welcome to the prestigious Olympics Hall of Fame! Our website is a celebration of sporting greatness, where we pay homage to the legendary athletes who have left an indelible mark on the history of the Olympic Games. Step into a world of unparalleled athleticism, courage, and determination as we showcase the iconic Hall of Famers who have transcended the boundaries of sports and inspired generations to come.")

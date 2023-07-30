@@ -22,6 +22,9 @@ def v_spacer(height, sb=False) -> None:
             st.write('\n')
 v_spacer(3, sb=False)
 
+with open("style.css") as f:
+        custom_css = f.read()
+        st.markdown(f'<style>{custom_css}</style>', unsafe_allow_html=True)
 
 #Input
 st.header("BodyFat Prediction!")

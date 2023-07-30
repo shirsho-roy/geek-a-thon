@@ -40,13 +40,15 @@ v_spacer(3, sb=False)
 
 
 #Sidebar waali bakchodi
-st.sidebar.success("Parametric Analysis")
+# st.sidebar.success("Parametric Analysis")
 
 #Page Content
 st.title("Parametric Analysis")
 val_nation=st.sidebar.selectbox("Pick a nation, for deeper analysis",options=nations,index=42)
 val_sport=st.sidebar.selectbox("Pick a sport, for deeper analysis",options=sports)
 val_year=st.sidebar.selectbox("Pick a year, for deeper analysis",options=years)
+
+
 
 #Sidebar Warning
 st.sidebar.warning("Running visualisations over the entire dataset, i.e. having 'NA' across all parameters may cause slow response and can cause the webpage to crash.")
@@ -137,7 +139,7 @@ gender_demographics={'gender':genders_array,'gender_freq':genders_count_array}
 gender_demographics_df=pd.DataFrame(gender_demographics)
 
 #Plot
-v_spacer(2,sb=False)
+v_spacer(1,sb=False)
 st.write("**2. Distribution of athletes by gender**")
 type_age=st.radio(label="Pick a method for visualisation of the plot.",options=['Bar Chart','Line Chart'],horizontal=True)
 if(type_age=='Bar Chart'):

@@ -3,8 +3,10 @@
 body {
     font-family: 'EB Garamond', serif;
 }
+
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.main.css-uf99v8.e1g8pov65 > div.block-container.css-z5fcl4.e1g8pov64{
     font-family: 'EB Garamond', serif;
+    background-color: black;
 }
 
 #uncovering-the-goldmine-of-olympic-insights > div > span, #olympics-you-ask > div > span, #we-got-that-data > div > span, #we-got-that-data > div > span, #let-s-take-a-deeper-dive-into-the-member-nations > div > span, #national-storehouse > div > span > strong, #age-demographics > div > span, #let-s-talk-medals > div > span, #popular-sports > div > span, #let-s-better-analyse-the-olympic-sport > div > span, #events-in-the-sport > div > span, #age-demographics > div > span, #let-s-take-a-deeper-dive-into-the-timeline-of-the-olympic-games > div > span, #age-demographics > div > span, #\31 0-lawrence-lemieux-canada > div > span, #\39 -dick-fosbury-united-states > div > span, #\38 -rulon-gardner-united-states > div > span, #\37 -bob-beamon-united-states > div > span, #\36 -michael-phelps-united-states > div > span, #\35 -usain-bolt-jamaica > div > span, #\34 -jesse-owens-united-states > div > span, #\33 -abebe-bikila-ethiopia > div > span, #\32 -greg-louganis-united-states > div > span, #\31 -nadia-comaneci-romania > div > span{
@@ -105,13 +107,31 @@ body {
 /* .css-6qob1r.eczjsme3{
     background-color: black;
     border: 2px solid #ffe91f !important;
-}
+}*/
 .css-6qob1r.eczjsme3:hover{
     background-color: black;
-    border: 2px solid #ffe91f !important;
-} */
+    border: 2px solid #ffe91f ;
+} 
 #root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-1cypcdb.e1akgbir11 > div.css-6qob1r.e1akgbir3{
     border-right: 4px solid #ffe91f;
     font-family: 'PT Serif', serif;
     background-color: black;
+}
+
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-1cypcdb.e1akgbir11 > div.css-6qob1r{
+    border-right: 4px solid #ffe91f;
+    font-family: 'PT Serif', serif;
+    background-color: black; 
+}
+#root > div:nth-child(1)  > div > div > div > section.css-1cypcdb.e1akgbir11 > div.css-6qob1r.e1akgbir3 > div.css-79elbk.e1akgbir10>{
+    border-right: 4px solid #ffe91f;
+    font-family: 'PT Serif', serif;
+    background-color: black; 
+}
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section.css-1cypcdb.e1akgbir11 > div.css-6qob1r.e1akgbir3 > div.css-e3xfei.e1akgbir4{
+    display: flex;
+}
+
+.sidebar .sidebar-content{
+    height:30%;
 }

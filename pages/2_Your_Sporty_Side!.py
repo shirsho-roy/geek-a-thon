@@ -84,7 +84,7 @@ st.write("The FFMI depends upon lean body mass in contrast to the total body-wei
 
 st.warning("You can determine your bodyfat percentage from the calculator on this page.")
 ffmi_weight=st.number_input("Enter your weight in kilograms")
-ffmi_height=st.number_input("Enter your height in meters",value=1)
+ffmi_height=st.number_input("Enter your height in meters",value=1.00)
 ffmi_bodyfat=st.number_input("Enter you bodyfat percentage")
 
 lean_mass=(1-(ffmi_bodyfat/100))*ffmi_weight

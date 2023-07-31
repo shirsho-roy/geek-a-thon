@@ -5,4 +5,4 @@ streamlit_authenticator==0.2.2
 matplotlib==3.7.0
 seaborn==0.12.2
 altair==5.0.1
-Sklearn
+scikit-learn==1.2.2
